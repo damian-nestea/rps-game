@@ -1,3 +1,5 @@
+import "./user-interface.js";
+
 const options = ["rock", "paper", "scissors"];
 const winnerHands = { rock: "scissors", scissors: "paper", paper: "rock" };
 
