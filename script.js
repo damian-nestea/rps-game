@@ -1,3 +1,5 @@
+import "./user-interface.js";
+
 const options = ["rock", "paper", "scissors"];
 const winnerHands = { rock: "scissors", scissors: "paper", paper: "rock" };
 
@@ -23,7 +25,7 @@ function game() {
   let computerPoints = 0;
 
   while (playerPoints < 3 && computerPoints < 3) {
-    const playerSelection = "scissors";
+    const playerSelection = "rock";
     const computerSelection = getComputerChoice();
     console.log(`P1 ${playerSelection} : COMP ${computerSelection} `);
 
