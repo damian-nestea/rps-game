@@ -27,7 +27,6 @@ function game() {
   while (playerPoints < 3 && computerPoints < 3) {
     const playerSelection = "rock";
     const computerSelection = getComputerChoice();
-    console.log(`P1 ${playerSelection} : COMP ${computerSelection} `);
 
     const gameWinner = getGameWinner(playerSelection, computerSelection);
 
