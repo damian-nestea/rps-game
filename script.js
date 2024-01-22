@@ -1,11 +1,8 @@
 import "./user-interface.js";
 
-const options = ["rock", "paper", "scissors"];
 const winnerHands = { rock: "scissors", scissors: "paper", paper: "rock" };
-
-function getComputerChoice() {
-  return options[Math.floor(Math.random() * options.length)];
-}
+let playerPoints = 0;
+let computerPoints = 0;
 
 function getGameWinner(player, computer) {
   if (player === computer) {
@@ -20,15 +17,9 @@ function getGameWinner(player, computer) {
   }
 }
 
-function game() {
-  let playerPoints = 0;
-  let computerPoints = 0;
-
-  while (playerPoints < 3 && computerPoints < 3) {
-    const playerSelection = "rock";
-    const computerSelection = getComputerChoice();
-
-    const gameWinner = getGameWinner(playerSelection, computerSelection);
+export function game(player, computer) {
+  if (playerPoints < 3 && computerPoints < 3) {
+    const gameWinner = getGameWinner(player, computer);
 
     gameWinner === "Player 1"
       ? (playerPoints += 1)
@@ -37,7 +28,4 @@ function game() {
       : null;
   }
   console.log(`P1: ${playerPoints}  - COMP: ${computerPoints}`);
-  console.log(`Winner: ${playerPoints === 3 ? "Player 1" : "Computer"}`);
 }
-
-game();
