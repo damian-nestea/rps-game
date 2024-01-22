@@ -8,6 +8,9 @@ const buttonsPlayer = document.querySelectorAll("#playerSelection button");
 const startButton = document.querySelector("#start");
 const gamePlaySection = document.querySelectorAll(".game");
 const playGameButton = document.querySelector("#playGame");
+const scoreSection = document.querySelector("#score");
+const playerScoreSpan = document.querySelector("#playerPoints");
+const computerScoreSpan = document.querySelector("#computerPoints");
 
 //functions
 function removeChoose() {
@@ -27,6 +30,11 @@ function getComputerSelection() {
   return options[Math.floor(Math.random() * options.length)];
 }
 
+export function updateScore(playerScore, computerScore) {
+  playerScoreSpan.textContent = playerScore;
+  computerScoreSpan.textContent = computerScore;
+}
+
 //events
 buttonsPlayer.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -39,6 +47,8 @@ buttonsPlayer.forEach((button) => {
 startButton.addEventListener("click", () => {
   startButton.classList.add("disabled");
   playGameButton.classList.remove("hide");
+  scoreSection.classList.remove("hide");
+
   gamePlaySection.forEach((item) => {
     item.classList.remove("hide");
   });

@@ -1,4 +1,5 @@
 import "./user-interface.js";
+import { updateScore } from "./user-interface.js";
 
 const winnerHands = { rock: "scissors", scissors: "paper", paper: "rock" };
 let playerPoints = 0;
@@ -27,5 +28,5 @@ export function game(player, computer) {
       ? (computerPoints += 1)
       : null;
   }
-  console.log(`P1: ${playerPoints}  - COMP: ${computerPoints}`);
+  updateScore(playerPoints, computerPoints);
 }
