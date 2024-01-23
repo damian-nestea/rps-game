@@ -1,4 +1,4 @@
-import { game } from "./script.js";
+import { game, playerPoints, computerPoints, resetPoints } from "./script.js";
 
 // constants
 const options = ["rock", "paper", "scissors"];
@@ -49,6 +49,23 @@ export function showGameResult(result) {
     default:
       window.alert(`Something wrong happened with the program...`);
   }
+}
+
+export function resetMatch() {
+  resetPoints(playerPoints);
+  resetPoints(computerPoints);
+  console.log("Jogo terminou");
+  resetMatchInterface();
+}
+
+function resetMatchInterface() {
+  startButton.classList.remove("disabled");
+  gamePlaySection.forEach((item) => {
+    item.classList.add("hide");
+  });
+  playGameButton.classList.add("hide");
+  scoreSection.classList.add("hide");
+  updateScore(0, 0);
 }
 
 //events
