@@ -1,10 +1,12 @@
 import "./user-interface.js";
+import { showGameResult, updateScore, resetMatch } from "./user-interface.js";
 
-const options = ["rock", "paper", "scissors"];
 const winnerHands = { rock: "scissors", scissors: "paper", paper: "rock" };
+export let playerPoints = 0;
+export let computerPoints = 0;
 
-function getComputerChoice() {
-  return options[Math.floor(Math.random() * options.length)];
+export function resetPoints(variable) {
+  variable = 0;
 }
 
 function getGameWinner(player, computer) {
@@ -20,24 +22,26 @@ function getGameWinner(player, computer) {
   }
 }
 
-function game() {
-  let playerPoints = 0;
-  let computerPoints = 0;
+export function game(player, computer) {
+  if (playerPoints < 3 && computerPoints < 3) {
+    const gameWinner = getGameWinner(player, computer);
 
-  while (playerPoints < 3 && computerPoints < 3) {
-    const playerSelection = "rock";
-    const computerSelection = getComputerChoice();
-
-    const gameWinner = getGameWinner(playerSelection, computerSelection);
-
-    gameWinner === "Player 1"
-      ? (playerPoints += 1)
-      : gameWinner === "Computer"
-      ? (computerPoints += 1)
-      : null;
+    if (gameWinner === "Player 1") {
+      playerPoints += 1;
+      showGameResult("player");
+    } else if (gameWinner === "Computer") {
+      computerPoints += 1;
+      showGameResult("computer");
+    } else {
+      showGameResult("draw");
+    }
   }
-  console.log(`P1: ${playerPoints}  - COMP: ${computerPoints}`);
-  console.log(`Winner: ${playerPoints === 3 ? "Player 1" : "Computer"}`);
+  updateScore(playerPoints, computerPoints);
+  if (playerPoints === 3) {
+    window.alert("Você ganhou!");
+    resetMatch();
+  } else if (computerPoints === 3) {
+    window.alert("Você perdeu...");
+    resetMatch();
+  }
 }
-
-game();
