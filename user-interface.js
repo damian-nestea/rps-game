@@ -35,6 +35,22 @@ export function updateScore(playerScore, computerScore) {
   computerScoreSpan.textContent = computerScore;
 }
 
+export function showGameResult(result) {
+  switch (result) {
+    case "player":
+      window.alert(`Player 1 won this hand!`);
+      break;
+    case "computer":
+      window.alert(`Computer won this hand!`);
+      break;
+    case "draw":
+      window.alert(`We have a draw!`);
+      break;
+    default:
+      window.alert(`Something wrong happened with the program...`);
+  }
+}
+
 //events
 buttonsPlayer.forEach((button) => {
   button.addEventListener("click", (e) => {
