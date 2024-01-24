@@ -16,3 +16,38 @@
     border:2px solid red;
 }
 
+#app{
+    margin:auto;
+    height: 100vh;
+
+    display: flex;
+    flex-flow:column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap:3rem;
+
+    text-align: center;
+}
+
+section.game{
+    display:flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    gap:2rem;
+}
+
+#score{
+    display:flex;
+    gap: 4rem;
+}
+
+ul{
+    display:flex;
+    gap:1rem;
+}
+
+ul li{
+    list-style: none;
+}
+
+
