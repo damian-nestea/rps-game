@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    margin-block:2rem;
+}
+
 .hide {
     display:none;
 }
@@ -18,25 +22,25 @@
 
 #app{
     margin:auto;
-    height: 100vh;
+    min-height: 100vh;
 
     display: flex;
     flex-flow:column nowrap;
     align-items: center;
     justify-content: center;
-    gap:3rem;
+    gap:clamp(1rem, 1.2rem + 2vw, 2.5rem);
 
     text-align: center;
 }
 
-section.game{
+section {
     display:flex;
     align-items: center;
     flex-flow: column nowrap;
     gap:2rem;
 }
 
-#score{
+article{
     display:flex;
     gap: 4rem;
 }
@@ -50,4 +54,38 @@ ul li{
     list-style: none;
 }
 
+.game button{
+    width: clamp(3rem, 4rem + 3vw, 8rem);
+    height: clamp(3rem, 4rem + 3vw, 8rem);
+}
+
+#playGame, #start button{
+    background-color: black;
+    color:white;
+    font-size:clamp(0.6rem, 1rem + 2vw, 1.6rem) ;
+
+    padding: clamp(0.2rem, 1.1rem + 2vw,2rem) clamp(0.8rem, 1.2rem + 2vw,2rem);
+
+    cursor: pointer;
+}
+
+button.rock{
+    background:no-repeat center/50% url(./img/rock.svg); 
+}
+
+button.paper{
+    background:no-repeat center/50% url(./img/paper.svg); 
+}
+
+button.scissors{
+    background:no-repeat center/50% url(./img/scissors.svg); 
+}
+
+#score p{
+    font-size: clamp(0.8rem, 1.1rem + 2vw,2rem);
+}
+
+#score span{
+    font-size: clamp(1rem, 1.2rem + 2vw,2.5rem);
+}
 
