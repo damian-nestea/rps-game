@@ -12,6 +12,10 @@ body{
     animation: mygradient 20s ease infinite;
 }
 
+body , button{
+    font-family: "IBM Plex Mono", monospace;
+}
+
 @keyframes mygradient {
     0% {
         background-position: 0% 50%;
