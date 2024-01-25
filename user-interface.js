@@ -54,18 +54,18 @@ export function showGameResult(result) {
 export function resetMatch() {
   resetPoints(playerPoints);
   resetPoints(computerPoints);
-  console.log("Jogo terminou");
   resetMatchInterface();
 }
 
 function resetMatchInterface() {
-  startButton.classList.remove("disabled");
   gamePlaySection.forEach((item) => {
     item.classList.add("hide");
   });
   playGameButton.classList.add("hide");
   scoreSection.classList.add("hide");
   updateScore(0, 0);
+  console.log(startButton.className);
+  startButton.classList.remove("hide");
 }
 
 //events
@@ -77,14 +77,14 @@ buttonsPlayer.forEach((button) => {
   });
 });
 
-startButton.addEventListener("click", () => {
-  startButton.classList.add("disabled");
+startButton.addEventListener("click", (e) => {
   playGameButton.classList.remove("hide");
   scoreSection.classList.remove("hide");
 
   gamePlaySection.forEach((item) => {
     item.classList.remove("hide");
   });
+  startButton.classList.add("hide");
 });
 
 playGameButton.addEventListener("click", (e) => {
